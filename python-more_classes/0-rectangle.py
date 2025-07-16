@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-"""This module defines a Rectangle class with width, height, and area functionality."""
-
-
 class Rectangle:
     """Represents a rectangle."""
 
