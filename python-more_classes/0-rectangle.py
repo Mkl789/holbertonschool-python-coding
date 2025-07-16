@@ -9,6 +9,7 @@ class Rectangle:
         """Initializes the rectangle with a size using the setter."""
         self.__width = width
         self.__height = height
+
     @property
     def width(self):
         """Retrieves the size of the rectangle."""
@@ -26,7 +27,7 @@ class Rectangle:
     def area(self):
         """Returns the current rectangle area."""
         return self.__width * self.__width
-    
+
     @property
     def height(self):
         """Retrieves the size of the rectangle."""
