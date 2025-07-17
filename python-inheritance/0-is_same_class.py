@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def is_same_class(obj, a_class):
-    if type(obj) == a_class:
-        return True
-    else:
-        return False
+    "Defines if the object is exactly an instance of the specified class"
+
+    return type(obj) == a_class
+    "checks for exact type match (and return True for a match)"
