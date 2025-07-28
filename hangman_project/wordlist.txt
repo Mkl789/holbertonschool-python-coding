@@ -18,10 +18,10 @@ lionfish
 mackerel
 stonefish
 shark
-wrass
+wrasse
 haddock
 swordfish
-humpheadwrass
+humpheadwrasse
 parrotfish
 catfish
 ripsawcatfish
