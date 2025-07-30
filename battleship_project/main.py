@@ -1,11 +1,12 @@
 from board import create_board, print_board, valid_shot_coord, cpu_shooting
-from ships import deploy_fleet, shot_processing
+from ships import deploy_fleet, shot_processing, prepare_fleet
 from config import BOARD_SIZE
 
 def main(): #setup/initialize game
     player_board = create_board()
     cpu_board = create_board()
-    player_lookup = deploy_fleet(player_board, "You")
+    player_fleet = prepare_fleet
+    player_lookup = deploy_fleet(player_board, player_fleet, "You")
     cpu_lookup = deploy_fleet(cpu_board, "CPU")
     player_shots_taken = set()
     cpu_shots_taken = set()

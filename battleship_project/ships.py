@@ -23,10 +23,10 @@ def prepare_fleet():
     names = ["North Tower", "Ti Lascar", "Gro Lascar", "Al Ahbdul"]
     fleet = []
     
-    for i in range(SHIP_SPECS):
-        fleet.append(Ship(SHIP_SPECS[1], names[1]))
+    for i in range(len(SHIP_SPECS)):
+        fleet.append(Ship(SHIP_SPECS[i], names[i]))
         
-    return fleet 
+    return fleet
 
 def random_ship_positioning(board, ship):
     orientation = random.choice(["H", "V"])
