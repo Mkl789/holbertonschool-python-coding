@@ -52,10 +52,10 @@ def random_ship_positioning(board, ship):
             if valid_position:
                 for r, c in positions:
                     board[r][c] = "S"
-                Ship.positions = positions #(so it saves to Ship object)
+                ship.positions = positions #(so it saves to Ship object)
                 placed_ship = True
         
-def deploy_fleet(board, fleet, ship, owner="CPU"): #returns a coord to ship map for hit detection andnaccept owner label (cpu)
+def deploy_fleet(board, fleet, owner="CPU"): #returns a coord to ship map for hit detection andnaccept owner label (cpu)
     lookup = {}
     for ship in fleet:
         random_ship_positioning(board, ship)
@@ -67,13 +67,15 @@ def deploy_fleet(board, fleet, ship, owner="CPU"): #returns a coord to ship map 
 def shot_processing(coord, board, lookup):
     if coord in lookup:
         ship = lookup[coord]
-        ship.hits += 1
+        ship.hit_tracking(coord)
         board[coord[0]][coord[1]] = "X"
-        if ship.hits == ship.length:
+        if ship.sunken():
             print(f"You sunk the {ship.name}!")
+            return "Sunk"
         else:
             print("Hit!")
+            return "Hit"
     else:
         board[coord[0]][coord[1]] = "O"
         print("Miss!")
-
+        return "Miss"
