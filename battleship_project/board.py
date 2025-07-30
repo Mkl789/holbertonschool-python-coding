@@ -53,7 +53,7 @@ def print_board(board, hiding=False):
                 rows.append("~")
             else:
                 rows.append(cell)
-        print(chr(65 + i), * board[i])
+        print(chr(65 + i), * rows)
 
 def run_game(): #to run the game but created it for the revious shots check to work
     board = create_board()
