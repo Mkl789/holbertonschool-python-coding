@@ -63,3 +63,17 @@ def deploy_fleet(board, fleet, owner="CPU"): #returns a coord to ship map for hi
             lookup[pos] = Ship
     
     return lookup 
+
+def shot_processing(coord, board, lookup):
+    if coord in lookup:
+        ship = lookup[coord]
+        ship.hits += 1
+        board[coord[0]][coord[1]] = "X"
+        if ship.hits == ship.length:
+            print(f"You sunk the {ship.name}!")
+        else:
+            print("Hit!")
+    else:
+        board[coord[0]][coord[1]] = "O"
+        print("Miss!")
+

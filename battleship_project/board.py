@@ -1,6 +1,8 @@
 from config import BOARD_SIZE
+import random
 
 previous_shots = set()
+cpu_shots_taken = set()
 
 def valid_shot_coord():
     while True:
@@ -23,6 +25,13 @@ def valid_shot_coord():
             continue
         
         return (row_index, col_index)
+
+def cpu_shooting():
+    while True:
+        shot = (random.randint(0, BOARD_SIZE - 1), random.randint(0, BOARD_SIZE - 1))
+        if shot not in cpu_shots_taken:
+            cpu_shots_taken.add(shot)
+            return shot
 
 def create_board():
     row_len = ['~'] * BOARD_SIZE
