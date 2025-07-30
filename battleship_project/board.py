@@ -39,7 +39,7 @@ def create_board():
     return board
 
 def print_headers():
-    print(" ", end="")
+    print("  ", end="")
     for col in range(1, BOARD_SIZE + 1):
         print(col, end=" ")
     print()
