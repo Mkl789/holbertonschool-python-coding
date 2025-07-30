@@ -1,6 +1,6 @@
 from board import create_board, print_board, valid_shot_coord, cpu_shooting
 from ships import deploy_fleet, shot_processing, prepare_fleet
-from config import BOARD_SIZE
+from config import BOARD_SIZE, SHIP_SPECS
 
 def main(): #setup/initialize game
     player_board = create_board()
