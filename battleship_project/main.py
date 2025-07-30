@@ -39,7 +39,7 @@ def main(): #setup/initialize game
             print("You lose...")
             break
 
-    print("Game over!")
+    print("Game over.")
 
 if __name__ == "__main__":
     main()
