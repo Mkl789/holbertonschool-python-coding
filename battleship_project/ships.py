@@ -28,18 +28,18 @@ def prepare_fleet():
         
     return fleet 
 
-def random_ship_positioning(board, Ship):
+def random_ship_positioning(board, ship):
     orientation = random.choice(["H", "V"])
     placed_ship = False
     while not placed_ship:
         if orientation == "H":
             row = random.randint(0, BOARD_SIZE - 1)
-            col = random.randint(0, (BOARD_SIZE - Ship.length)) #BOARD_SIZE - Ship.length => in bounds
+            col = random.randint(0, (BOARD_SIZE - ship.length)) #BOARD_SIZE - Ship.length => in bounds
         else:
-            row = random.randint(0, (BOARD_SIZE - Ship.length))
+            row = random.randint(0, (BOARD_SIZE - ship.length))
             col = random.randint(0, BOARD_SIZE - 1)
         positions = []
-        for i in range(Ship.length):
+        for i in range(ship.length):
             if orientation == "H":
                 positions.append((row, col + i)) #memo as to how it builds: len=3, direct=H, start.point(2, 1) => i=0 -> (2, 1), i=1 -> (2, 2), i=2 -> (2, 3). Pos = [(2.1), (2,2), (2,3)] = Ship!
             else:
@@ -49,18 +49,18 @@ def random_ship_positioning(board, Ship):
             if board[r][c] != '~':
                 valid_position = False
                 break
-            else:
+            if valid_position:
                 for r, c in positions:
                     board[r][c] = "S"
                 Ship.positions = positions #(so it saves to Ship object)
                 placed_ship = True
         
-def deploy_fleet(board, fleet, owner="CPU"): #returns a coord to ship map for hit detection andnaccept owner label (cpu)
+def deploy_fleet(board, fleet, ship, owner="CPU"): #returns a coord to ship map for hit detection andnaccept owner label (cpu)
     lookup = {}
-    for Ship in fleet:
-        random_ship_positioning(board, Ship)
-        for pos in Ship.positions:
-            lookup[pos] = Ship
+    for ship in fleet:
+        random_ship_positioning(board, ship)
+        for pos in ship.positions:
+            lookup[pos] = ship
     
     return lookup 
 
