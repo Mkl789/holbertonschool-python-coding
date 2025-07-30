@@ -5,7 +5,7 @@ from config import BOARD_SIZE
 def main(): #setup/initialize game
     player_board = create_board()
     cpu_board = create_board()
-    player_fleet = prepare_fleet
+    player_fleet = prepare_fleet()
     player_lookup = deploy_fleet(player_board, player_fleet, "You")
     cpu_lookup = deploy_fleet(cpu_board, "CPU")
     player_shots_taken = set()
