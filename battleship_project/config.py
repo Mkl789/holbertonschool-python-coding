@@ -1,2 +1,0 @@
-BOARD_SIZE = 5
-SHIP_SPECS = [2, 3, 3, 4]
